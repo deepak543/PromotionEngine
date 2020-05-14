@@ -1,11 +1,10 @@
-package com.assessment.javaassessment.promotionengine.promotion;
+package com.assessment.javaassessment.promotionengine.promotionengine.promotion;
 
-import com.assessment.javaassessment.promotionengine.model.CartItem;
-import com.assessment.javaassessment.promotionengine.model.ItemSKU;
+import com.assessment.javaassessment.promotionengine.promotionengine.model.CartItem;
+import com.assessment.javaassessment.promotionengine.promotionengine.model.ItemSKU;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.Value;
 
 @Builder
 @Getter

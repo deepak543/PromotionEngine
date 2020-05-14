@@ -1,19 +1,18 @@
-package com.assessment.javaassessment.promotionengine.service;
+package com.assessment.javaassessment.promotionengine.promotionengine.service;
 
-import com.assessment.javaassessment.promotionengine.model.CartItem;
+import com.assessment.javaassessment.promotionengine.promotionengine.model.CartItem;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
 
-@Builder
+
 @Getter
 @Setter
 public class ShoppingCart {
-    private Set<CartItem> cartItems;
+    private Set<CartItem> cartItems = new HashSet<>();
 
     public void addCartItem(CartItem cartItem)
     {

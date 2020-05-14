@@ -1,4 +1,4 @@
-package com.assessment.javaassessment.promotionengine.model;
+package com.assessment.javaassessment.promotionengine.promotionengine.model;
 
 import lombok.Builder;
 import lombok.Value;

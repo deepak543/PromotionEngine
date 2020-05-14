@@ -1,8 +1,7 @@
-package com.assessment.javaassessment.promotionengine.promotion;
+package com.assessment.javaassessment.promotionengine.promotionengine.promotion;
 
-import com.assessment.javaassessment.promotionengine.model.CartItem;
-import com.assessment.javaassessment.promotionengine.model.ItemSKU;
-import com.assessment.javaassessment.promotionengine.service.ShoppingCart;
+import com.assessment.javaassessment.promotionengine.promotionengine.model.CartItem;
+import com.assessment.javaassessment.promotionengine.promotionengine.model.ItemSKU;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -34,12 +33,14 @@ public class PromotionEngine {
         promotions.add(promotion);
     }
 
-    public static int calculatePromotionPrice(CartItem cartItem)
+    public static int calculatePromotionPrice(CartItem... cartItem)
     {
         for(IPromotion promotion : promotions)
         {
-            if(promotion.appliesTo(cartItem))
+            if(promotion.appliesTo(cartItem)) {
+                //cartItem.setProcessed(true);
                 return promotion.calculatePrice(cartItem);
+            }
         }
         return -1;
     }

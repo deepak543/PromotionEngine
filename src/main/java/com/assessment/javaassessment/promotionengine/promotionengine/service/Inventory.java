@@ -1,6 +1,6 @@
-package com.assessment.javaassessment.promotionengine.service;
+package com.assessment.javaassessment.promotionengine.promotionengine.service;
 
-import com.assessment.javaassessment.promotionengine.model.ItemSKU;
+import com.assessment.javaassessment.promotionengine.promotionengine.model.ItemSKU;
 
 import java.util.ArrayList;
 import java.util.List;
