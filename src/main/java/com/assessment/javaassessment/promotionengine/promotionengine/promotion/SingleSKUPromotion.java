@@ -6,12 +6,24 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * The type Single sku promotion.
+ */
 @Builder
 @Getter
 @Setter
 public class SingleSKUPromotion implements IPromotion{
+    /**
+     * The Item sku.
+     */
     ItemSKU itemSKU;
+    /**
+     * The Quantity.
+     */
     int quantity;
+    /**
+     * The Price.
+     */
     int price;
     @Override
     public boolean appliesTo(CartItem... cartItem) {

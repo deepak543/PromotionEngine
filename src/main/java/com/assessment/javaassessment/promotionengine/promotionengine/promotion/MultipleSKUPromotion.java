@@ -8,11 +8,20 @@ import lombok.Setter;
 
 import java.util.Set;
 
+/**
+ * The type Multiple sku promotion.
+ */
 @Builder
 @Getter
 @Setter
 public class MultipleSKUPromotion implements IPromotion{
+    /**
+     * The Sku list.
+     */
     Set<ItemSKU> skuList;
+    /**
+     * The Price.
+     */
     int price;
 
     @Override
