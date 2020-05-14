@@ -6,8 +6,17 @@ import com.assessment.javaassessment.promotionengine.promotionengine.promotion.P
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Order price calculator.
+ */
 public class OrderPriceCalculator {
 
+    /**
+     * Calculate total price int.
+     *
+     * @param shoppingCart the shopping cart
+     * @return the int
+     */
     public int  calculateTotalPrice(ShoppingCart shoppingCart)
     {
         int totalPrice = 0;
