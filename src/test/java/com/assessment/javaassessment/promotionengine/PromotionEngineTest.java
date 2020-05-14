@@ -2,6 +2,7 @@ package com.assessment.javaassessment.promotionengine;
 import com.assessment.javaassessment.promotionengine.model.CartItem;
 import com.assessment.javaassessment.promotionengine.model.ItemSKU;
 import com.assessment.javaassessment.promotionengine.promotion.IPromotion;
+import com.assessment.javaassessment.promotionengine.promotion.MultipleSKUPromotion;
 import com.assessment.javaassessment.promotionengine.promotion.SingleSKUPromotion;
 import com.assessment.javaassessment.promotionengine.service.Inventory;
 import org.hamcrest.core.Is;
@@ -9,7 +10,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -54,6 +57,53 @@ class PromotionEngineTest {
                 .quantity(5)
                 .build();
         assertTrue(promotion.appliesTo(cartItem));
+    }
+
+    @Test
+    public void singleSKUPromotionPriceTest()
+    {
+        IPromotion promotion =  SingleSKUPromotion.builder()
+                .itemSKU(ItemSKU.builder().SKU("A").price(50).build())
+                .quantity(3)
+                .price(130)
+                .build();
+
+        CartItem cartItem = CartItem.builder()
+                .itemSKU(ItemSKU.builder()
+                        .price(50)
+                        .SKU("A")
+                        .build())
+                .quantity(5)
+                .build();
+        assertEquals(230, promotion.calculatePrice(cartItem));
+    }
+
+    @Test
+    public void multipleSKUPromotionPriceTest()
+    {
+        Set<ItemSKU> itemSKUSet = new HashSet<>();
+        itemSKUSet.add(ItemSKU.builder().SKU("C").price(20).build());
+        itemSKUSet.add(ItemSKU.builder().SKU("D").price(15).build());
+        IPromotion promotion =  MultipleSKUPromotion.builder()
+                .skuList(itemSKUSet)
+                .price(30)
+                .build();
+
+        CartItem cartItem = CartItem.builder()
+                .itemSKU(ItemSKU.builder()
+                        .price(20)
+                        .SKU("C")
+                        .build())
+                .quantity(1)
+                .build();
+        CartItem cartItem1 = CartItem.builder()
+                .itemSKU(ItemSKU.builder()
+                        .price(15)
+                        .SKU("D")
+                        .build())
+                .quantity(1)
+                .build();
+        assertEquals(30, promotion.calculatePrice(cartItem, cartItem1));
     }
 
 }
