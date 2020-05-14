@@ -1,4 +1,6 @@
 package com.assessment.javaassessment.promotionengine;
+import com.assessment.javaassessment.promotionengine.model.ItemSKU;
+import com.assessment.javaassessment.promotionengine.service.Inventory;
 import org.junit.jupiter.api.BeforeAll;
 
 import java.util.ArrayList;
